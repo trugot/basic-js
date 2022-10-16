@@ -12,7 +12,15 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function encodeLine(str) {
   const array = str.split('')
-
+  let i = 0, j = 1;
+  const result = []
+  for (; j <= array.length; j++) {
+    if (array[i] !== array[j]) {
+      result.push(array.slice(i, j).length + array[i])
+      i = j
+    }
+  }
+  return result.join("").replaceAll('1', "");
 
 }
 
